@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <nav>
+      <a href="">Home</a>
+      <a href="">profil</a>
+      <a href="">Followrs</a>
+    </nav>
+    <section>
+      
+      <button id="new-tweet">New</button>
+    </section>
+    <article>
+    </article>
+    <div id="input">
+        <input id="twee" type="text" name="input" placeholder="what's on your mind!!!">
+        <button id="btn">Tweet</button>
+    </div>
+    <script>
+       
+      $('#btn').on('click', function () {
+        var $article = $('article');
+        var $tweet = $('<div></div>');
+        $tweet.text('.input');
+        $tweet.appendTo($article);
+        // $tweet.prepend($article);
+      })
+
+      var index = streams.home.length - 1;
+      $('#new-tweet').on('click', function (){
+          var $article = $('article');
+          var tweet = streams.home[index];
+         var $tweet = $('<div></div>');
+          var $userName = $('<a></a>');
+
+          $tweet.text('@' + $userName.text('tweet.user') + ': ' + tweet.message + ' ' + tweet.created_at.toDateString());
+          console.log(tweet) ;
+          $tweet.appendTo($article);
+          index -= 1;
+                  
+      })
+
+
+      //   $(document).ready(function(){
+      //   // var interval = (Math.floor(Math.random()*6)) * 1000;
+      //   var $article = $('article');
+      //   $article.html('');
+
+      //   // var index = streams.home.length - 1;
+      //   // while(index >= 0){
+      //   //   var tweet = streams.home[index];
+      //   //   var $tweet = $('<div></div>');
+      //   //   $tweet.text('@' + tweet.user + ': ' + tweet.message) 
+      //   //   $tweet.appendTo($article);
+      //   //   index -= 1;
+      //   // }
+
+      // })
+
+    </script>
+  </body>
+</html>
